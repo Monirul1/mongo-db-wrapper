@@ -3,6 +3,9 @@
  
  [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
+ ## Issues
+ https://img.shields.io/github/issues/monirul1/mongo-db-wrapper
+
 # Overview
 <strong> Project: MongoDB Wrapper Library for Node </strong>
 
