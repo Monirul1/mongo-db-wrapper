@@ -47,4 +47,3 @@ class MongoDbWrapper implements MongoDbWrapperInterface {
 }
 
 export { MongoDbWrapperInterface, MongoDbWrapper, Collection };
-

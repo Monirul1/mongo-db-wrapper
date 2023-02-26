@@ -1,5 +1,5 @@
-import { ObjectId } from "mongodb";
-// test user document object 
+import { ObjectId } from 'mongodb';
+// test user document object
 interface User extends Document {
   _id: ObjectId;
   name: string;
@@ -7,4 +7,4 @@ interface User extends Document {
   age: number;
 }
 
-export {User}
+export { User };

@@ -1,12 +1,15 @@
 # mongo-db-wrapper
- MongoDB interface wrapper in JavaScript to perform common database operations
- 
- [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
- ## Issues
- https://img.shields.io/github/issues/monirul1/mongo-db-wrapper
+MongoDB interface wrapper in JavaScript to perform common database operations
+
+[![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
+
+## Issues
+
+https://img.shields.io/github/issues/monirul1/mongo-db-wrapper
 
 # Overview
+
 <strong> Project: MongoDB Wrapper Library for Node </strong>
 
 <strong>Objective:</strong>
@@ -23,13 +26,12 @@ To simplify the process of working with MongoDB in a Node.js application by prov
 
 <strong>Technology Stack:</strong>
 
-| Name  | Purpose |
-| ------------- | ------------- |
-| NodeJS    | runtime platform to build the library  |
-| TypeScript    | programming language to be used to build the library  |
-| MongoDB    | to initialize the wrapper with the database  |
-| NPM   | for publishing the library to the NPM registry  |
-
+| Name       | Purpose                                              |
+| ---------- | ---------------------------------------------------- |
+| NodeJS     | runtime platform to build the library                |
+| TypeScript | programming language to be used to build the library |
+| MongoDB    | to initialize the wrapper with the database          |
+| NPM        | for publishing the library to the NPM registry       |
 
 <strong>Why this library?:</strong>
 

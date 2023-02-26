@@ -38,5 +38,4 @@ describe('MongoDbWrapper integration tests', () => {
     expect(res).not.toBeNull();
     expect(res?.value).toBe(123);
   });
-
 });
