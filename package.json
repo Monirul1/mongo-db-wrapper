@@ -8,7 +8,7 @@
     "test": "jest",
     "start": "ts-node ./src/index.ts",
     "run-index": "node --experimental-specifier-resolution=node ./dist/index.js",
-    "eslint": "eslint .",
+    "lint": "eslint .",
     "prettier": "prettier --write \"src/**/*.ts\""
   },
   "type": "module",
