@@ -7,7 +7,7 @@ import { MongoDbWrapper } from './mongo-wrapper';
 
 // init the class and connect to the db
 const wrapper = new MongoDbWrapper();
-await wrapper.connect('mongodb://localhost:27017/mydb');
+await wrapper.connect('mongodb://0.0.0.0:27017/mydb');
 
 const db = wrapper.getDb();
 

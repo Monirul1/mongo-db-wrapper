@@ -5,7 +5,7 @@ describe('MongoDbWrapper', () => {
 
   beforeAll(async () => {
     mongoDbWrapper = new MongoDbWrapper();
-    await mongoDbWrapper.connect('mongodb://localhost:27017');
+    await mongoDbWrapper.connect('mongodb://0.0.0.0:27017');
   });
 
   afterAll(async () => {

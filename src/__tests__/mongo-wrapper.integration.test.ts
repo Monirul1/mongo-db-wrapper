@@ -9,7 +9,7 @@ describe('MongoDbWrapper integration tests', () => {
 
   beforeAll(async () => {
     wrapper = new MongoDbWrapper();
-    await wrapper.connect('mongodb://localhost:27017/mydb');
+    await wrapper.connect('mongodb://0.0.0.0:27017/mydb');
     client = wrapper.getClient();
     db = wrapper.getDb();
     collection = wrapper.getCollection('test');
