@@ -20,6 +20,7 @@ describe('MongoDbWrapper integration tests', () => {
   });
 
   it('should return the database', () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     expect(db.databaseName).toBe('mydb');
   });
 
@@ -32,9 +33,9 @@ describe('MongoDbWrapper integration tests', () => {
       name: 'test document',
       value: 123,
     };
-
+    await collection.insertOne(doc);
     const res = await collection.findOne({ name: 'test document' });
-
-    expect(res?.value).toBe(123);
+    expect(res).not.toBeNull();
+    expect(res.value).toBe(123);
   });
 });
