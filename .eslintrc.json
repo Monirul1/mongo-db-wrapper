@@ -16,5 +16,11 @@
     "project": "./tsconfig.json"
   },
   "plugins": ["@typescript-eslint"],
-  "rules": {}
+  "rules": {
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": "off"
+  },
+  "ignorePatterns": ["dist/mongo-wrapper.js", "jest.config.ts", "dist/utils/user.js", "dist/__tests__/mongo-wrapper.test.js", "dist/__tests__/mongo-wrapper.integration.test.js", "<tsconfigRootDir>/coverage/lcov-report/prettify.js", "coverage/lcov-report/sorter.js", "dist/index.js", "lcov-report/prettify.js", "cov-report/block-navigation.js", "coverage/lcov-report/prettify.js", "coverage/lcov-report/block-navigation.js"]
 }
