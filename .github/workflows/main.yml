@@ -24,7 +24,20 @@ jobs:
         mongodb-version: ${{ matrix.mongodb-version }}
     - run: npm install
     - run: npm run build
-    - run: npm run test
+    - run: npm run test -- --coverage
     - run: npm run lint
     - run: npm run prettier
 
+    - name: Upload coverage report to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+
+    - name: Generate code coverage badge
+      uses: badgen/badgen-action@v1
+      with:
+        subject: 'coverage'
+        status: ${{ env.CODECOV_REPORTER }}%
+        color: ${{ env.CODECOV_REPORTER >= 80 && 'brightgreen' || env.CODECOV_REPORTER >= 60 && 'yellow' || 'red' }}
+        icon: 'codecov'
+        label: 'coverage'
