@@ -7,8 +7,8 @@ MongoDB interface wrapper in JavaScript to perform common database operations
 
 
 ## Issues
+[![Issues](https://img.shields.io/github/issues/monirul1/mongo-db-wrapper)
 
-https://img.shields.io/github/issues/monirul1/mongo-db-wrapper
 
 # Overview
 
