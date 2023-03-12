@@ -6,7 +6,6 @@ MongoDB interface wrapper in JavaScript to perform common database operations
 [![CI status](https://github.com/Monirul1/mongo-db-wrapper/actions/workflows/main.yml/badge.svg)
 
 
-
 ## Issues
 
 https://img.shields.io/github/issues/monirul1/mongo-db-wrapper
