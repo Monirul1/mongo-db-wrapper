@@ -35,7 +35,6 @@ describe('MongoDbWrapper integration tests', () => {
 
     const res = await collection.findOne({ name: 'test document' });
 
-    expect(res).not.toBeNull();
     expect(res?.value).toBe(123);
   });
 });
