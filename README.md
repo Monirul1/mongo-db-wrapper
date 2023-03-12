@@ -3,7 +3,7 @@
 MongoDB interface wrapper in JavaScript to perform common database operations
 
 [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
-[![Code coverage](https://github.com/Monirul1/mongo-db-wrapper/actions/workflows/main.yml/badge.svg)
+![Code coverage](https://github.com/Monirul1/mongo-db-wrapper/actions/workflows/main.yml/badge.svg)
 
 
 ## Issues
