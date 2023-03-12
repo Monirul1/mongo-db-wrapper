@@ -4,7 +4,7 @@ MongoDB interface wrapper in JavaScript to perform common database operations
 
 [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 ![CI Status](https://github.com/Monirul1/mongo-db-wrapper/actions/workflows/main.yml/badge.svg)
-![Code coverage](https://codecov.io/gh/Monirul1/mongo-db-wrapper)
+![codecov](https://codecov.io/gh/Monirul1/mongo-db-wrapper/branch/main/graph/badge.svg?token=ATED3RU00V)](https://codecov.io/gh/Monirul1/mongo-db-wrapper)
 
 
 ## Issues
