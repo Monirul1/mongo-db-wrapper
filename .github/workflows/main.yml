@@ -21,9 +21,10 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         node-version: [14.x]
+        mongodb-version: ['4.2']
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -31,20 +32,18 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: package-lock.json
+        
+    - name: Start MongoDB
+      uses: supercharge/mongodb-github-action@1.8.0
+      with:
+        mongodb-version: ${{ matrix.mongodb-version }}
+    - run: npm install
+    - run: npm run build
+    - run: npm run test -- --coverage
+    - run: npm run lint
+    - run: npm run prettier
 
-    - name: Install dependencies
-      run: |
-        npm install
-        
-    - name: Lint
-      run: |
-        npm run eslint
-        
-    - name: Test
-      run: |
-        npm run test -- --coverage
-        
-    - name: Upload coverage reports to Codecov
+    - name: Upload coverage report to Codecov
       uses: codecov/codecov-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
