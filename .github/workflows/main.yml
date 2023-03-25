@@ -1,9 +1,19 @@
 name: CI 
 
+name: Build Status
+
 on:
   push:
     branches:
       - main
+    tags:
+      - v*
+    paths-ignore:
+      - CONTRIBUTING.md
+      - LICENSE
+      - README.md
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
