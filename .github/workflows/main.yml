@@ -48,3 +48,4 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         fail_ci_if_less_than: 20
+        flags: no-throw
