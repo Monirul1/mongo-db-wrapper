@@ -26,7 +26,11 @@ await collection.insertOne({
 });
 
 // Insert a new user
-const insertResult = await wrapper.insertOne<any>('users', { name: 'John', age: 30, email: 'john@example.com' });
+const insertResult = await wrapper.insertOne<any>('users', {
+  name: 'John',
+  age: 30,
+  email: 'john@example.com',
+});
 console.log(`Inserted id: ${insertResult.insertedId}`);
 
 // retrieve an item from users collection
