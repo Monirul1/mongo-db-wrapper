@@ -20,7 +20,41 @@ To simplify the process of working with MongoDB in a Node.js application by prov
 
 <strong>Description:</strong> The MongoDB Wrapper Library will be a Node.js library with the purpose of providing an abstraction layer over MongoDB, making it easier for developers to interact with the database without having to write complex MongoDB queries while building their node applications. The library will provide a set of well-defined, easy-to-use interfaces for performing common MongoDB operations, such as inserting, updating, retrieving, and deleting data. This will allow developers to focus on their application logic, without having to spend time and effort on learning the intricacies of MongoDB.
 
-<strong>Features:</strong>
+# Installation
+To install this library, you need to have Node.js and npm (Node Package Manager) installed on your system. If you haven't installed them yet, you can download them from the official website: https://nodejs.org/
+
+Once you have Node.js and npm installed, you can install the mongo-db-wrapper package by running the following command in your terminal:
+
+```
+npm install mongo-db-wrapper
+```
+
+# Usage
+To use this library, you need to first import it into your Node.js application:
+
+```javascript
+const { MongoClient } = require('mongodb');
+const { MongoDbWrapper } = require('mongo-db-wrapper');
+
+```
+Then, you need to create an instance of the MongoClient class and connect to your MongoDB database:
+
+```javascript
+const client = new MongoClient(uri, options);
+await client.connect();
+
+```
+where uri is the connection string for your MongoDB database, and options is an object that specifies additional connection options (such as authentication).
+
+Once you have connected to your database, you can create an instance of the MongoDbWrapper class by passing in the MongoClient instance:
+
+```javascript
+const wrapper = new MongoDbWrapper(client);
+```
+Then, you can use the various methods provided by the MongoDbWrapper class to perform database operations.
+
+
+# Features Overview
 
 1. Simple and intuitive interfaces for read and write operations
 2. Abstraction layer over MongoDB, allowing developers to work with the database without having to write complex queries
