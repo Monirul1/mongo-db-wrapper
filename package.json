@@ -1,6 +1,6 @@
 {
   "name": "mongo-db-wrapper",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "TypeScript based mongoDB wrapper ",
   "main": "index.js",
   "scripts": {
