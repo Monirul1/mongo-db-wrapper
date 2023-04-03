@@ -49,3 +49,12 @@ jobs:
         token: ${{ secrets.CODECOV_TOKEN }}
         fail_ci_if_less_than: 20
         flags: no-throw
+
+    - name: Generate documentation
+      run: npm run build-docs
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ secrets.PERSONAL_TOKEN }}
+        publish_dir: ./docs
