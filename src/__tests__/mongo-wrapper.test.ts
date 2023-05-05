@@ -1,6 +1,14 @@
-import { InsertManyResult, InsertOneResult, MongoServerError } from 'mongodb';
+import { InsertOneResult, MongoServerError, ObjectId } from 'mongodb';
 import { MongoDbWrapperInterface, MongoDbWrapper } from '../mongo-wrapper';
-import { User } from '../utils/user';
+
+interface User extends Document {
+  _id: ObjectId;
+  name: string;
+  email: string;
+  age: number;
+}
+
+export { User };
 
 describe('MongoDbWrapper', () => {
   let mongoDbWrapper: MongoDbWrapperInterface;
