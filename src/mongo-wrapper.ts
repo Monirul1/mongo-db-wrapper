@@ -41,7 +41,6 @@ interface MongoDbWrapperInterface {
    */
   getCollection<T extends Document>(name: string): Collection<T>;
 
-
   /**
    * Returns the MongoDB `MongoClient` instance.
    *
@@ -112,7 +111,6 @@ interface MongoDbWrapperInterface {
     query: Partial<T>
   ): Promise<number>;
 
-
   /**
 
   Updates multiple documents in a MongoDB collection that match the specified query.
@@ -125,7 +123,7 @@ interface MongoDbWrapperInterface {
     collectionName: string,
     query: Partial<T>,
     update: Partial<any>
-  ): Promise<number>
+  ): Promise<number>;
 
   /**
   Deletes multiple documents from a MongoDB collection that match the specified query.
@@ -136,7 +134,7 @@ interface MongoDbWrapperInterface {
   deleteMany<T extends { _id: any }>(
     collectionName: string,
     query: Partial<T>
-  ): Promise<number>
+  ): Promise<number>;
 
   /**
   Returns the count of documents in a MongoDB collection that match the specified query.
@@ -147,7 +145,7 @@ interface MongoDbWrapperInterface {
   count<T extends { _id: any }>(
     collectionName: string,
     query: Partial<T>
-  ): Promise<number>
+  ): Promise<number>;
 
   /**
   Returns an array of documents from a MongoDB collection that match the specified query.
@@ -158,8 +156,7 @@ interface MongoDbWrapperInterface {
   find<T extends { _id: any }>(
     collectionName: string,
     query: Partial<T>
-  ): Promise<T[]> 
-
+  ): Promise<T[]>;
 
   /**
   Finds a single document from a MongoDB collection that matches the specified query and updates it.
@@ -174,7 +171,7 @@ interface MongoDbWrapperInterface {
     query: Partial<T>,
     update: Partial<any>,
     options?: { returnOriginal?: boolean }
-  ): Promise<T | null>
+  ): Promise<T | null>;
 
   /**
   Finds a single document from a MongoDB collection that matches the specified query and deletes it.
@@ -185,7 +182,7 @@ interface MongoDbWrapperInterface {
   findOneAndDelete<T extends { _id: any }>(
     collectionName: string,
     query: Partial<T>
-  ): Promise<T | null> 
+  ): Promise<T | null>;
 }
 
 class MongoDbWrapper implements MongoDbWrapperInterface {
