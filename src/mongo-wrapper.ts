@@ -111,6 +111,81 @@ interface MongoDbWrapperInterface {
     collectionName: string,
     query: Partial<T>
   ): Promise<number>;
+
+
+  /**
+
+  Updates multiple documents in a MongoDB collection that match the specified query.
+  @param collectionName - The name of the collection to update.
+  @param query - The query to search for.
+  @param update - The update operation to apply.
+  @returns A promise that resolves to the number of documents updated.
+  */
+  updateMany<T extends { _id: any }>(
+    collectionName: string,
+    query: Partial<T>,
+    update: Partial<any>
+  ): Promise<number>
+
+  /**
+  Deletes multiple documents from a MongoDB collection that match the specified query.
+  @param collectionName - The name of the collection to delete from.
+  @param query - The query to search for.
+  @returns A promise that resolves to the number of documents deleted.
+  */
+  deleteMany<T extends { _id: any }>(
+    collectionName: string,
+    query: Partial<T>
+  ): Promise<number>
+
+  /**
+  Returns the count of documents in a MongoDB collection that match the specified query.
+  @param collectionName - The name of the collection to count.
+  @param query - The query to search for.
+  @returns A promise that resolves to the number of documents matching the query.
+  */
+  count<T extends { _id: any }>(
+    collectionName: string,
+    query: Partial<T>
+  ): Promise<number>
+
+  /**
+  Returns an array of documents from a MongoDB collection that match the specified query.
+  @param collectionName - The name of the collection to search.
+  @param query - The query to search for.
+  @returns A promise that resolves to an array of matching documents.
+  */
+  find<T extends { _id: any }>(
+    collectionName: string,
+    query: Partial<T>
+  ): Promise<T[]> 
+
+
+  /**
+  Finds a single document from a MongoDB collection that matches the specified query and updates it.
+  @param collectionName - The name of the collection to update.
+  @param query - The query to search for.
+  @param update - The update operation to apply.
+  @param options - Optional settings for the update operation.
+  @returns A promise that resolves to the updated document or null if no document was found.
+  */
+  findOneAndUpdate<T extends { _id: any }>(
+    collectionName: string,
+    query: Partial<T>,
+    update: Partial<any>,
+    options?: { returnOriginal?: boolean }
+  ): Promise<T | null>
+
+  /**
+  Finds a single document from a MongoDB collection that matches the specified query and deletes it.
+  @param collectionName - The name of the collection to delete from.
+  @param query - The query to search for.
+  @returns A promise that resolves to the deleted document or null if no document was found.
+  */
+  findOneAndDelete<T extends { _id: any }>(
+    collectionName: string,
+    query: Partial<T>
+  ): Promise<T | null> 
 }
 
 class MongoDbWrapper implements MongoDbWrapperInterface {
@@ -194,6 +269,63 @@ class MongoDbWrapper implements MongoDbWrapperInterface {
     const collection = this.getCollection<any>(collectionName);
     const result = await collection.deleteOne(query);
     return result.deletedCount;
+  }
+
+  async updateMany<T extends { _id: any }>(
+    collectionName: string,
+    query: Partial<T>,
+    update: Partial<any>
+  ): Promise<number> {
+    const collection = this.getCollection<any>(collectionName);
+    const result = await collection.updateMany(query, { $set: update });
+    return result.modifiedCount;
+  }
+
+  async deleteMany<T extends { _id: any }>(
+    collectionName: string,
+    query: Partial<T>
+  ): Promise<number> {
+    const collection = this.getCollection<any>(collectionName);
+    const result = await collection.deleteMany(query);
+    return result.deletedCount;
+  }
+
+  async count<T extends { _id: any }>(
+    collectionName: string,
+    query: Partial<T>
+  ): Promise<number> {
+    const collection = this.getCollection<any>(collectionName);
+    const result = await collection.countDocuments(query);
+    return result;
+  }
+
+  async find<T extends { _id: any }>(
+    collectionName: string,
+    query: Partial<T>
+  ): Promise<T[]> {
+    const collection = this.getCollection<any>(collectionName);
+    const result = await collection.find(query).toArray();
+    return result;
+  }
+
+  async findOneAndUpdate<T extends { _id: any }>(
+    collectionName: string,
+    query: Partial<T>,
+    update: Partial<any>,
+    options?: { returnOriginal?: boolean }
+  ): Promise<T | null> {
+    const collection = this.getCollection<any>(collectionName);
+    const result = await collection.findOneAndUpdate(query, { $set: update });
+    return result.value;
+  }
+
+  async findOneAndDelete<T extends { _id: any }>(
+    collectionName: string,
+    query: Partial<T>
+  ): Promise<T | null> {
+    const collection = this.getCollection<any>(collectionName);
+    const result = await collection.findOneAndDelete(query);
+    return result.value;
   }
 }
 
